@@ -6,7 +6,14 @@ const todoForm = props => (
     <input
     type="text"
       placeholder="Enter your Todo item..."
-      onChange={props.updateValue}
+            onChange={props.updateValue}
+            value={props.value}
+            onKeyDown={(e) => {
+                if (e.keyCode === 13)
+                {
+                    props.addTodo()
+                }
+            }}
     />
     <button className='add' onClick={() => props.addTodo()}>Add Todo</button>
     <button>Clear Completed</button>

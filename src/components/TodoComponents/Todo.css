@@ -5,6 +5,7 @@
     margin: .5rem;
     width: 80%;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 input{
@@ -32,4 +33,9 @@ button{
 button:hover{
     color: blue;
     background-color: white;
+}
+
+span{
+    float: right;
+    font-size: .7rem;
 }

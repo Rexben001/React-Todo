@@ -1,5 +1,4 @@
 import React from "react";
-import uuid from "uuid";
 import "./App.css";
 
 import TodoList from "./components/TodoComponents/TodoList";
@@ -17,7 +16,9 @@ class App extends React.Component {
     window.localStorage.setItem("todo", JSON.stringify(this.state.todo));
   }
 
-  updateTodoState = event => this.setState({ todoTask: event.target.value });
+  updateTodoState = event => {
+    this.setState({ todoTask: event.target.value });
+  };
 
   addTodoList = () => {
     if (this.state.todoTask === "") {
@@ -25,13 +26,15 @@ class App extends React.Component {
     }
     const newTodo = {
       task: this.state.todoTask,
-      id: uuid(),
+      id: new Date(),
       completed: false
     };
-    this.setState({ todo: this.state.todo.concat(newTodo) , todoTask: ''}, () =>
+    this.setState({ todo: this.state.todo.concat(newTodo), todoTask: ''}, () =>
       window.localStorage.setItem("todo", JSON.stringify(this.state.todo))
     );
   };
+
+
 
   render() {
     return (
@@ -41,6 +44,7 @@ class App extends React.Component {
         <TodoForm
           updateValue={this.updateTodoState}
           addTodo={this.addTodoList}
+          value={this.state.todoTask}
         />
       </div>
     );
