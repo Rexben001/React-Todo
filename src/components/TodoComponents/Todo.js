@@ -1,10 +1,10 @@
-import React from 'react';
-import './Todo.css';
+import React from "react";
+import "./Todo.css";
 
-import TodoForm from './TodoForm';
-
-const todo = () => (
-    <div></div>
+const todo = props => (
+  <div>
+    <p>{props.todoTask}</p>
+  </div>
 );
 
 export default todo;
