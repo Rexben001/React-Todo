@@ -1,6 +1,6 @@
 import React from "react";
 import uuid from "uuid";
-import './App.css';
+import "./App.css";
 
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
@@ -14,22 +14,28 @@ class App extends React.Component {
       todo: defaultTodoList,
       todoTask: ""
     };
+    window.localStorage.setItem("todo", JSON.stringify(this.state.todo));
   }
 
   updateTodoState = event => this.setState({ todoTask: event.target.value });
 
   addTodoList = () => {
+    if (this.state.todoTask === "") {
+      return alert("Pls, enter todo");
+    }
     const newTodo = {
       task: this.state.todoTask,
       id: uuid(),
       completed: false
     };
-    this.setState({ todo: this.state.todo.concat(newTodo) });
+    this.setState({ todo: this.state.todo.concat(newTodo) , todoTask: ''}, () =>
+      window.localStorage.setItem("todo", JSON.stringify(this.state.todo))
+    );
   };
 
   render() {
     return (
-      <div className='App'>
+      <div className="App">
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todo} />
         <TodoForm
