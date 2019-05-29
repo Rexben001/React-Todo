@@ -1,0 +1,35 @@
+.todo{
+    padding: .5rem;
+    background-color: rgb(4, 71, 38);
+    color: white;
+    margin: .5rem;
+    width: 80%;
+    border-radius: 5px;
+}
+
+input{
+    padding: .5rem;
+    margin: 2rem .5rem .5rem;
+    width: 70%;
+    display: block;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+button{
+    padding: .5rem;
+    outline: 0;
+    margin: .5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add{
+    color: white;
+    background-color: blue;
+}
+
+button:hover{
+    color: blue;
+    background-color: white;
+}
