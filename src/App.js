@@ -39,7 +39,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h2>Welcome to your Todo App!</h2>
+        <h2 style={{color: 'white'}}>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todo} />
         <TodoForm
           updateValue={this.updateTodoState}

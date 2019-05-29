@@ -6,9 +6,12 @@ import "./Todo.css";
 
 import Todo from "./Todo";
 
-const todoList = props =>
-  props.todos.map(todo => (
-    <Todo key={todo.id} todoTask={todo.task} complete={todo.completed} />
-  ));
+const todoList = props => (
+  <div className='Todo'>
+    {props.todos.map(todo => (
+      <Todo key={todo.id} todoTask={todo.task} complete={todo.completed} />
+    ))}
+  </div>
+);
 
 export default todoList;
