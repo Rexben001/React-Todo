@@ -4,17 +4,15 @@ import "./App.css";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
+
+
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   constructor(props) {
     super(props);
     this.state = {
-      todo: defaultTodoList,
+      todo: initalStateTodo,
       todoTask: ""
     };
-    window.localStorage.setItem("todo", JSON.stringify(this.state.todo));
   }
 
   updateTodoState = event => {
@@ -30,36 +28,36 @@ class App extends React.Component {
       id: new Date(),
       completed: false
     };
-    this.setState({ todo: this.state.todo.concat(newTodo), todoTask: ''}, () =>
-      window.localStorage.setItem("todo", JSON.stringify(this.state.todo))
+    this.setState({ todo: this.state.todo.concat(newTodo), todoTask: "" }, () => {
+      const getValueFromLocalStorage = JSON.parse(window.localStorage.getItem("todo"));
+      getValueFromLocalStorage.push(newTodo);
+      window.localStorage.setItem("todo", JSON.stringify(getValueFromLocalStorage))
+    }
     );
   };
 
-  completedTask = (id) => {
+  completedTask = id => {
     const updArr = [...this.state.todo];
     this.setState({
       todo: updArr.map(val => {
-        if (val.id === id)
-        {
+        if (val.id === id) {
           val.completed = true;
         }
         return val;
       })
-    })
-  }
+    });
+  };
 
   clearCompletedTask = () => {
     this.setState({
       todo: this.state.todo.filter(item => item.completed !== true)
-    })
-  }
-
-
+    });
+  };
 
   render() {
     return (
       <div className="App">
-        <h2 style={{color: 'white'}}>Welcome to your Todo App!</h2>
+        <h2 style={{ color: "white" }}>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.todo} clickedEvent={this.completedTask} />
         <TodoForm
           updateValue={this.updateTodoState}
@@ -84,5 +82,12 @@ const defaultTodoList = [
     completed: false
   }
 ];
+if (window.localStorage.getItem("todo") === null)
+{
+  window.localStorage.setItem("todo", JSON.stringify(defaultTodoList));
+}
+const initalStateTodo = JSON.parse(window.localStorage.getItem("todo"));
+
+
 
 export default App;

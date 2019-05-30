@@ -2,7 +2,7 @@ import React from "react";
 import "./Todo.css";
 
 const todoForm = props => (
-  <div>
+  <div className="TodoForm">
     <input
     type="text"
       placeholder="Enter your Todo item..."

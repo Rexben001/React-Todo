@@ -2,11 +2,17 @@
     padding: 1rem;
     background-color: rgb(244, 245, 244);
     color: rgb(112, 6, 6);
-    margin: .5rem;
     width: 80%;
     border-radius: 5px;
     box-sizing: border-box;
     cursor: pointer;
+    border-bottom: grey 1px solid;
+}
+
+.complete{
+    background-color: rgb(47, 3, 3);
+    color: white;
+    text-decoration: line-through;
 }
 
 .todo:hover{
@@ -16,7 +22,7 @@
 input{
     padding: .5rem;
     margin: 2rem .5rem .5rem;
-    width: 80%;
+    width: 75%;
     display: block;
     font-size: 1rem;
     border-radius: 5px;
