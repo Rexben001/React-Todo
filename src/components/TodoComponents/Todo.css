@@ -6,6 +6,11 @@
     width: 80%;
     border-radius: 5px;
     box-sizing: border-box;
+    cursor: pointer;
+}
+
+.todo:hover{
+    box-shadow: 0 2px 2px grey;
 }
 
 input{

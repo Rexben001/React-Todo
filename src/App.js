@@ -3,6 +3,7 @@ import "./App.css";
 
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -34,13 +35,27 @@ class App extends React.Component {
     );
   };
 
+  completedTask = (id) => {
+    const updArr = [...this.state.todo];
+    this.setState({
+      todo: updArr.map(val => {
+        if (val.id === id)
+        {
+          val.completed = true;
+        }
+        return val;
+      })
+    })
+    console.log(this.state.todo)
+  }
+
 
 
   render() {
     return (
       <div className="App">
         <h2 style={{color: 'white'}}>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todo} />
+        <TodoList todos={this.state.todo} clickedEvent={this.completedTask}/>
         <TodoForm
           updateValue={this.updateTodoState}
           addTodo={this.addTodoList}
