@@ -2,5 +2,5 @@ body{
     background:linear-gradient(0deg,rgba(84, 85, 84, 0.3),rgba(84, 85, 84, 0.3)), url('./assets/bg-image.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 90vh;
+    min-height: 85vh;
 }

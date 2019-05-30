@@ -29,9 +29,7 @@ class App extends React.Component {
       completed: false
     };
     this.setState({ todo: this.state.todo.concat(newTodo), todoTask: "" }, () => {
-      const getValueFromLocalStorage = JSON.parse(window.localStorage.getItem("todo"));
-      getValueFromLocalStorage.push(newTodo);
-      window.localStorage.setItem("todo", JSON.stringify(getValueFromLocalStorage))
+      window.localStorage.setItem("todo", JSON.stringify(this.state.todo))
     }
     );
   };
@@ -49,9 +47,11 @@ class App extends React.Component {
   };
 
   clearCompletedTask = () => {
+    const filteredTodo = this.state.todo.filter(item => item.completed !== true);
     this.setState({
-      todo: this.state.todo.filter(item => item.completed !== true)
+      todo: filteredTodo
     });
+    window.localStorage.setItem("todo", JSON.stringify(filteredTodo))
   };
 
   render() {
