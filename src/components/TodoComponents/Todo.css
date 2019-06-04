@@ -1,0 +1,51 @@
+.todo{
+    padding: 1rem;
+    background-color: rgb(244, 245, 244);
+    color: rgb(112, 6, 6);
+    margin: .5rem;
+    width: 80%;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input{
+    padding: .5rem;
+    margin: 2rem .5rem .5rem;
+    width: 80%;
+    display: block;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: rgb(92, 94, 93);
+    color: white;
+    outline: none;
+}
+
+button{
+    padding: .5rem;
+    outline: 0;
+    margin: .5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: red;
+    color: white;
+}
+
+.add{
+    color: white;
+    background-color: blue;
+}
+
+button:hover{
+    color: red;
+    background-color: white;
+}
+
+.add:hover{
+    color: blue;
+    background-color: white;
+}
+span{
+    float: right;
+    font-size: .7rem;
+}
