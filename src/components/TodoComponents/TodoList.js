@@ -9,7 +9,7 @@ import Todo from "./Todo";
 const todoList = props => (
   <div className='Todo'>
     {props.todos.map(todo => (
-      <Todo key={todo.id} todoTask={todo.task} complete={todo.completed} />
+      <Todo key={todo.id} todoTask={todo} complete={props.clickedEvent} id={todo.id}/>
     ))}
   </div>
 );

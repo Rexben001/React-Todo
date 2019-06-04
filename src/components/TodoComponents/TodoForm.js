@@ -2,7 +2,7 @@ import React from "react";
 import "./Todo.css";
 
 const todoForm = props => (
-  <div>
+  <div className="TodoForm">
     <input
     type="text"
       placeholder="Enter your Todo item..."
@@ -16,7 +16,7 @@ const todoForm = props => (
             }}
     />
     <button className='add' onClick={() => props.addTodo()}>Add Todo</button>
-    <button>Clear Completed</button>
+    <button onClick={()=> props.clearTodo()}>Clear Completed</button>
   </div>
 );
 
